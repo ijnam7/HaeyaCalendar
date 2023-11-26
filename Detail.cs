@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HaeyaCalendar
 {
-    public partial class Form1 : Form
+    public partial class Detail : Form
     {
-        public Form1()
+        public Detail()
         {
             InitializeComponent();
         }
