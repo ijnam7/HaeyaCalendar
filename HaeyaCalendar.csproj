@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddList.Designer.cs">
+      <DependentUpon>AddList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Alert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,10 @@
     <Compile Include="Timer.Designer.cs">
       <DependentUpon>Timer.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToDo.cs" />
+    <EmbeddedResource Include="AddList.resx">
+      <DependentUpon>AddList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Alert.resx">
       <DependentUpon>Alert.cs</DependentUpon>
     </EmbeddedResource>

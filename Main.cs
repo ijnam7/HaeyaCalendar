@@ -16,11 +16,25 @@ namespace HaeyaCalendar
         {
             InitializeComponent();
 
-
+            DateTime dateToday = DateTime.Now;
+            lbDateToday.Text = dateToday.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Timer timer = new Timer();
+            timer.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddList addlist = new AddList();
+            addlist.Show();
+        }
+
+        private void resetMainList ()
+        {
+            DataTable dtAll = new DataTable();
 
         }
     }
