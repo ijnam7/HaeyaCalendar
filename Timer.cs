@@ -45,7 +45,7 @@ namespace HaeyaCalendar
 
             todoName = t;
             lbName.Text = todoName;
-
+            lbRecWorking.Text = textTimer(recWorking);
 
             setWorking = w * 60;
             setResting = r * 60;
@@ -59,7 +59,9 @@ namespace HaeyaCalendar
 
         private string textTimer(int s)
         {
-            return (s / 60).ToString() + "분 " + (s % 60).ToString() + "초";
+            string lm = "00" + (s / 60).ToString();
+            string ls = "00" + (s % 60).ToString();
+            return string.Format("{0}:{1}", lm.Substring(lm.Length-2), ls.Substring(ls.Length-2));
         }
 
         private void timerState()           // 화면 상 상태 변화
@@ -111,7 +113,7 @@ namespace HaeyaCalendar
                 if (select == "end")
                 {
                     timerState();
-                    ToDo td = new ToDo(todoName, recWorking);
+                    ToDo td = new ToDo(DateTime.Today, todoName, recWorking);
                     coll.InsertOne(td);
                     this.Close();
                 }

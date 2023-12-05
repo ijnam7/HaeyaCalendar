@@ -15,9 +15,9 @@ namespace HaeyaCalendar
         public string name { get; set; }
         public int time { get; set; }
 
-        public ToDo(string name, int time)
+        public ToDo(DateTime date, string name, int time)
         {
-            this.date = DateTime.Today.ToString("d");
+            this.date = date.ToString("d");
             this.name = name;
             this.time = time;
         }

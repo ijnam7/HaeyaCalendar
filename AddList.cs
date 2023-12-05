@@ -28,12 +28,11 @@ namespace HaeyaCalendar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime deadline = dateTimePicker1.Value;
             string name = tbName.Text;
 
             int timeM = Convert.ToInt32(numTime.Value);
 
-            ToDo td = new ToDo(name, timeM*60);
+            ToDo td = new ToDo(dateTimePicker1.Value, name, timeM*60);
             coll.InsertOne(td);
 
             this.Close();

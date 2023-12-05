@@ -33,7 +33,7 @@ namespace HaeyaCalendar
             dt.Columns.Add("시간");
             dt.Rows.Add();
 
-            searchAll();
+            dateFilter(dateToday.ToString("d"));
         }
 
         private void searchAll()
@@ -57,7 +57,15 @@ namespace HaeyaCalendar
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            btnDel.Visible = true;
             searchAll();
+        }
+        private string textTimer(int s)
+        {
+            string lh = "00" + (s / 3600).ToString();
+            string lm = "00" + (s%3600/60).ToString();
+            string ls = "00" + s.ToString();
+            return string.Format("{0}:{1}:{2}", lh.Substring(lh.Length-2), lm.Substring(lm.Length - 2), ls.Substring(ls.Length - 2));
         }
 
         private void dateFilter(string date)
@@ -72,7 +80,7 @@ namespace HaeyaCalendar
             {
                 DataRow row = dtSel.NewRow();
                 row["한일"] = todoList[i].name;
-                row["집중 시간"] = string.Format("{0}분 {1}초", todoList[i].time/60, todoList[i].time%60);
+                row["집중 시간"] = textTimer(todoList[i].time);
                 dtSel.Rows.Add(row);
             }
             dgvAll.DataSource = dtSel;
@@ -80,6 +88,7 @@ namespace HaeyaCalendar
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            btnDel.Visible = false;
             dateFilter(dateTimePicker1.Value.ToString("d"));
         }
 
@@ -96,6 +105,13 @@ namespace HaeyaCalendar
         {
             Form addList = new AddList();
             addList.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            btnDel.Visible=false;
+            dateTimePicker1.Value = DateTime.Today;
+            dateFilter(DateTime.Today.ToString("d"));
         }
     }
 }

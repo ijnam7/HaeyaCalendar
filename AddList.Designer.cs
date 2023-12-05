@@ -61,7 +61,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(156, 21);
             this.dateTimePicker1.TabIndex = 10;
-            this.dateTimePicker1.Value = new System.DateTime(2023, 11, 27, 7, 39, 24, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2023, 12, 6, 0, 0, 0, 0);
             // 
             // button1
             // 
@@ -94,6 +94,11 @@
             // numTime
             // 
             this.numTime.Location = new System.Drawing.Point(65, 75);
+            this.numTime.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.numTime.Name = "numTime";
             this.numTime.Size = new System.Drawing.Size(133, 21);
             this.numTime.TabIndex = 15;
