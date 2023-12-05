@@ -33,18 +33,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.nResting = new System.Windows.Forms.NumericUpDown();
-            this.dgvAll = new System.Windows.Forms.DataGridView();
-            this.deadline = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbTodoName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbTimer = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.dgvAll = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.nWorking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nResting)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAll)).BeginInit();
             this.gbTimer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAll)).BeginInit();
             this.SuspendLayout();
             // 
             // lbDateToday
@@ -104,41 +101,6 @@
             0,
             0});
             // 
-            // dgvAll
-            // 
-            this.dgvAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.deadline,
-            this.name,
-            this.state});
-            this.dgvAll.Location = new System.Drawing.Point(336, 43);
-            this.dgvAll.Name = "dgvAll";
-            this.dgvAll.RowHeadersWidth = 62;
-            this.dgvAll.RowTemplate.Height = 23;
-            this.dgvAll.Size = new System.Drawing.Size(471, 381);
-            this.dgvAll.TabIndex = 14;
-            // 
-            // deadline
-            // 
-            this.deadline.HeaderText = "마감일";
-            this.deadline.MinimumWidth = 8;
-            this.deadline.Name = "deadline";
-            this.deadline.Width = 150;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "일정";
-            this.name.MinimumWidth = 8;
-            this.name.Name = "name";
-            this.name.Width = 150;
-            // 
-            // state
-            // 
-            this.state.HeaderText = "상태";
-            this.state.MinimumWidth = 8;
-            this.state.Name = "state";
-            this.state.Width = 150;
-            // 
             // tbTodoName
             // 
             this.tbTodoName.Location = new System.Drawing.Point(26, 82);
@@ -182,6 +144,16 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
+            // dgvAll
+            // 
+            this.dgvAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAll.Location = new System.Drawing.Point(336, 43);
+            this.dgvAll.Name = "dgvAll";
+            this.dgvAll.RowHeadersWidth = 62;
+            this.dgvAll.RowTemplate.Height = 23;
+            this.dgvAll.Size = new System.Drawing.Size(471, 381);
+            this.dgvAll.TabIndex = 14;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -197,9 +169,9 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.nWorking)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nResting)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAll)).EndInit();
             this.gbTimer.ResumeLayout(false);
             this.gbTimer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAll)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,14 +183,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown nResting;
-        private System.Windows.Forms.DataGridView dgvAll;
         private System.Windows.Forms.TextBox tbTodoName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deadline;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn state;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbTimer;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.DataGridView dgvAll;
     }
 }
 

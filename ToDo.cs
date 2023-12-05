@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace HaeyaCalendar
 {
     internal class ToDo
     {
-        public DateTime deadline { get; set; }
+        public ObjectId id { get; set; }
+        public DateTime date { get; set; }
         public string name { get; set; }
-        public int workingHours { get; set; }
-        public bool complete { get; set; }
-        public bool star { get; set; }
+        public int time { get; set; }
 
-        public ToDo(DateTime deadline, string name)
+        public ToDo(string name)
         {
-            this.deadline = deadline;
+            this.date = DateTime.Today;
             this.name = name;
-            this.workingHours = 0;
-            this.complete = false;
-            this.star = false;
+            this.time = 0;
         }
     }
 }

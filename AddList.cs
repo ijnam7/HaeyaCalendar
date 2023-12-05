@@ -22,7 +22,6 @@ namespace HaeyaCalendar
             DateTime deadline = dateTimePicker1.Value;
             string name = tbName.Text;
 
-            new ToDo(deadline, name);
 
             this.Close();
         }

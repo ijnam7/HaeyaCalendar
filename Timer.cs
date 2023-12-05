@@ -8,6 +8,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace HaeyaCalendar
 {
@@ -23,6 +25,8 @@ namespace HaeyaCalendar
 
         int setWorking = 0;     // 전체 working 시간 기록
         int setResting = 0;
+
+        string todoName;
 
         public Timer(string todoName, int w, int r)
         {
@@ -110,6 +114,11 @@ namespace HaeyaCalendar
         {
             tmTimer += 1;
             lbRecStr.Text = textTimer(tmTimer);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
