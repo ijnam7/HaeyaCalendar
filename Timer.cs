@@ -28,13 +28,26 @@ namespace HaeyaCalendar
 
         string todoName;
 
-        public Timer(string todoName, int w, int r)
+
+        MongoClient client = new MongoClient();
+        IMongoDatabase db;
+        IMongoCollection<ToDo> coll;
+
+        public Timer(string t, int w, int r, bool c)
         {
             InitializeComponent();
 
-            gbSet.Text = todoName;
+            db = client.GetDatabase("HY");
+            coll = db.GetCollection<ToDo>("todos");
 
-            setWorking = w;
+            if (c == false ) { gbSet.Visible = c; }
+            else { lbSetWorking.Text = w.ToString(); lbSetResting.Text = r.ToString(); }
+
+            todoName = t;
+            lbName.Text = todoName;
+
+
+            setWorking = w * 60;
             setResting = r * 60;
 
             lbTimer.Text = textTimer(0);
@@ -69,10 +82,11 @@ namespace HaeyaCalendar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            message(state);
+            if (state == true) { message("stop"); }
+            else { message("continue"); }
         }
 
-        private void message(bool wr)
+        private void message(string select)
         {
             string msg = "쉬시겠습니까?";
             string lb = "집중 끝";
@@ -80,17 +94,32 @@ namespace HaeyaCalendar
             {
                 lbTimer.ForeColor = Color.Red;
             }
-            if (wr == false)
+            if (select == "continue")
             {
-                msg = "집중 하시겠습니까?";
+                msg = "집중하시겠습니까?";
                 lb = "쉬는 시간 끝";
+            }
+            else if (select == "end")
+            {
+                msg = "끝내시겠습니까?";
+                lb = "타이머 종료";
             }
             var result = MessageBox.Show(msg, lb, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                lbTimer.ForeColor = Color.Black;
                 state = !state;
-                over = false;
+                if (select == "end")
+                {
+                    timerState();
+                    ToDo td = new ToDo(todoName, recWorking);
+                    coll.InsertOne(td);
+                    this.Close();
+                }
+                if (over)
+                {
+                    lbTimer.ForeColor = Color.Black;
+                    over = false;
+                }
                 timerState();
             }
         }
@@ -102,11 +131,11 @@ namespace HaeyaCalendar
 
             if (state == true)
             {
-                if (pTimer == setWorking) { over = true; message(state); }
+                if (pTimer == setWorking) { over = true; message("stop"); }
             }
             else
             {
-                if (pTimer == setResting) { over = true; message(state); }
+                if (pTimer == setResting) { over = true; message("continue"); }
             }
         }
 
@@ -118,7 +147,7 @@ namespace HaeyaCalendar
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            message("end");
         }
     }
 }

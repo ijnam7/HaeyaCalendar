@@ -26,7 +26,12 @@ namespace HaeyaCalendar
             coll = db.GetCollection<ToDo>("todos");
 
             DateTime dateToday = DateTime.Today;
-            lbDateToday.Text = dateToday.ToString();
+            lbDateToday.Text = dateToday.ToString("d");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("날짜");
+            dt.Columns.Add("시간");
+            dt.Rows.Add();
 
             searchAll();
         }
@@ -41,15 +46,56 @@ namespace HaeyaCalendar
         {
             int working = Convert.ToInt32(nWorking.Value);
             int resting = Convert.ToInt32(nResting.Value);
-            ToDo td = new ToDo(tbTodoName.Text);
-            coll.InsertOne(td);
-            Timer timer = new Timer(tbTodoName.Text, working, resting);
+            Timer timer = new Timer(tbTodoName.Text, working, resting, checkBox1.Checked);
             timer.Show();
         }
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             gbTimer.Visible = checkBox1.Checked;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            searchAll();
+        }
+
+        private void dateFilter(string date)
+        {
+            DataTable dtSel = new DataTable();
+            dtSel.Columns.Add("한일");
+            dtSel.Columns.Add("집중 시간");
+
+            var filter = Builders<ToDo>.Filter.Eq("date", date);
+            List<ToDo> todoList = coll.Find<ToDo>(filter).ToList();
+            for (int i = 0; i < todoList.Count; i++)
+            {
+                DataRow row = dtSel.NewRow();
+                row["한일"] = todoList[i].name;
+                row["집중 시간"] = string.Format("{0}분 {1}초", todoList[i].time/60, todoList[i].time%60);
+                dtSel.Rows.Add(row);
+            }
+            dgvAll.DataSource = dtSel;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dateFilter(dateTimePicker1.Value.ToString("d"));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dgvAll.CurrentCell.RowIndex;
+            ObjectId id = (ObjectId)dgvAll.Rows[rowIndex].Cells[0].Value;
+            var filter = Builders<ToDo>.Filter.Eq("_id", id);
+            coll.DeleteOne(filter);
+            searchAll();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form addList = new AddList();
+            addList.Show();
         }
     }
 }

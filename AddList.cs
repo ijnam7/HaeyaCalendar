@@ -7,14 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace HaeyaCalendar
 {
+
     public partial class AddList : Form
     {
+        MongoClient client = new MongoClient();
+        IMongoDatabase db;
+        IMongoCollection<ToDo> coll;
         public AddList()
         {
             InitializeComponent();
+
+            db = client.GetDatabase("HY");
+            coll = db.GetCollection<ToDo>("todos");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -22,6 +31,10 @@ namespace HaeyaCalendar
             DateTime deadline = dateTimePicker1.Value;
             string name = tbName.Text;
 
+            int timeM = Convert.ToInt32(numTime.Value);
+
+            ToDo td = new ToDo(name, timeM*60);
+            coll.InsertOne(td);
 
             this.Close();
         }

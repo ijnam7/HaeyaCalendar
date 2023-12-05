@@ -11,15 +11,15 @@ namespace HaeyaCalendar
     internal class ToDo
     {
         public ObjectId id { get; set; }
-        public DateTime date { get; set; }
+        public string date { get; set; }
         public string name { get; set; }
         public int time { get; set; }
 
-        public ToDo(string name)
+        public ToDo(string name, int time)
         {
-            this.date = DateTime.Today;
+            this.date = DateTime.Today.ToString("d");
             this.name = name;
-            this.time = 0;
+            this.time = time;
         }
     }
 }

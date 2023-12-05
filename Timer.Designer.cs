@@ -38,13 +38,14 @@
             this.tmRecStr = new System.Windows.Forms.Timer(this.components);
             this.lbRecWorking = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gbSet = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.lbState = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
+            this.gbSet = new System.Windows.Forms.GroupBox();
+            this.lbSetResting = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lbSetWorking = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbSet.SuspendLayout();
             this.SuspendLayout();
@@ -72,12 +73,12 @@
             // lbTimer
             // 
             this.lbTimer.AutoSize = true;
-            this.lbTimer.Font = new System.Drawing.Font("Gulim", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbTimer.Location = new System.Drawing.Point(115, 91);
+            this.lbTimer.Font = new System.Drawing.Font("Gulim", 26F);
+            this.lbTimer.Location = new System.Drawing.Point(113, 86);
             this.lbTimer.Name = "lbTimer";
-            this.lbTimer.Size = new System.Drawing.Size(127, 32);
+            this.lbTimer.Size = new System.Drawing.Size(131, 35);
             this.lbTimer.TabIndex = 3;
-            this.lbTimer.Text = "n분 n초";
+            this.lbTimer.Text = "nn : nn";
             // 
             // tmRec
             // 
@@ -125,33 +126,6 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "총 집중 시간";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 12);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "nn분";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(122, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 12);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "쉼";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(85, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 12);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "nn분";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lbRecWorking);
@@ -164,45 +138,85 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             // 
-            // gbSet
-            // 
-            this.gbSet.Controls.Add(this.label5);
-            this.gbSet.Controls.Add(this.label12);
-            this.gbSet.Controls.Add(this.label2);
-            this.gbSet.Controls.Add(this.label4);
-            this.gbSet.Location = new System.Drawing.Point(34, 25);
-            this.gbSet.Name = "gbSet";
-            this.gbSet.Size = new System.Drawing.Size(209, 44);
-            this.gbSet.TabIndex = 12;
-            this.gbSet.TabStop = false;
-            this.gbSet.Text = "할 일 제목";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(47, 20);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(29, 12);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "집중";
-            // 
             // lbState
             // 
             this.lbState.AutoSize = true;
             this.lbState.Font = new System.Drawing.Font("Gulim", 10F);
-            this.lbState.Location = new System.Drawing.Point(31, 109);
+            this.lbState.Location = new System.Drawing.Point(31, 28);
             this.lbState.Name = "lbState";
             this.lbState.Size = new System.Drawing.Size(54, 14);
             this.lbState.TabIndex = 20;
             this.lbState.Text = "집중 중";
+            // 
+            // lbName
+            // 
+            this.lbName.Font = new System.Drawing.Font("Gulim", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbName.Location = new System.Drawing.Point(28, 47);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(212, 21);
+            this.lbName.TabIndex = 21;
+            this.lbName.Text = "할 일 이름";
+            // 
+            // gbSet
+            // 
+            this.gbSet.Controls.Add(this.lbSetResting);
+            this.gbSet.Controls.Add(this.label12);
+            this.gbSet.Controls.Add(this.lbSetWorking);
+            this.gbSet.Controls.Add(this.label4);
+            this.gbSet.Location = new System.Drawing.Point(32, 73);
+            this.gbSet.Name = "gbSet";
+            this.gbSet.Size = new System.Drawing.Size(65, 54);
+            this.gbSet.TabIndex = 22;
+            this.gbSet.TabStop = false;
+            // 
+            // lbSetResting
+            // 
+            this.lbSetResting.AutoSize = true;
+            this.lbSetResting.Font = new System.Drawing.Font("Gulim", 8F);
+            this.lbSetResting.Location = new System.Drawing.Point(4, 33);
+            this.lbSetResting.Name = "lbSetResting";
+            this.lbSetResting.Size = new System.Drawing.Size(30, 11);
+            this.lbSetResting.TabIndex = 16;
+            this.lbSetResting.Text = "nn분";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Gulim", 8F);
+            this.label12.Location = new System.Drawing.Point(33, 15);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(27, 11);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "집중";
+            // 
+            // lbSetWorking
+            // 
+            this.lbSetWorking.AutoSize = true;
+            this.lbSetWorking.Font = new System.Drawing.Font("Gulim", 8F);
+            this.lbSetWorking.Location = new System.Drawing.Point(4, 15);
+            this.lbSetWorking.Name = "lbSetWorking";
+            this.lbSetWorking.Size = new System.Drawing.Size(30, 11);
+            this.lbSetWorking.TabIndex = 14;
+            this.lbSetWorking.Text = "nn분";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Gulim", 8F);
+            this.label4.Location = new System.Drawing.Point(33, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(27, 11);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "휴식";
             // 
             // Timer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(273, 310);
-            this.Controls.Add(this.lbState);
             this.Controls.Add(this.gbSet);
+            this.Controls.Add(this.lbName);
+            this.Controls.Add(this.lbState);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lbTimer);
             this.Controls.Add(this.button2);
@@ -229,12 +243,13 @@
         private System.Windows.Forms.Label lbRecWorking;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbRecStr;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox gbSet;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lbState;
+        private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.GroupBox gbSet;
+        private System.Windows.Forms.Label lbSetResting;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbSetWorking;
+        private System.Windows.Forms.Label label4;
     }
 }
