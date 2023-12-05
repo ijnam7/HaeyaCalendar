@@ -38,6 +38,7 @@
             this.gbTimer = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.dgvAll = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.nWorking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nResting)).BeginInit();
             this.gbTimer.SuspendLayout();
@@ -147,18 +148,26 @@
             // dgvAll
             // 
             this.dgvAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAll.Location = new System.Drawing.Point(336, 43);
+            this.dgvAll.Location = new System.Drawing.Point(336, 61);
             this.dgvAll.Name = "dgvAll";
             this.dgvAll.RowHeadersWidth = 62;
             this.dgvAll.RowTemplate.Height = 23;
-            this.dgvAll.Size = new System.Drawing.Size(471, 381);
+            this.dgvAll.Size = new System.Drawing.Size(471, 363);
             this.dgvAll.TabIndex = 14;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(336, 34);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.TabIndex = 21;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 436);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.gbTimer);
             this.Controls.Add(this.tbTodoName);
@@ -188,6 +197,7 @@
         private System.Windows.Forms.GroupBox gbTimer;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DataGridView dgvAll;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
