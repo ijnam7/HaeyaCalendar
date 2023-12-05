@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,12 +52,6 @@
     </Compile>
     <Compile Include="AddList.Designer.cs">
       <DependentUpon>AddList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Alert.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Alert.Designer.cs">
-      <DependentUpon>Alert.cs</DependentUpon>
     </Compile>
     <Compile Include="Detail.cs">
       <SubType>Form</SubType>
@@ -78,18 +73,17 @@
     <Compile Include="Timer.Designer.cs">
       <DependentUpon>Timer.cs</DependentUpon>
     </Compile>
+    <Compile Include="TimeRecord.cs" />
     <Compile Include="ToDo.cs" />
     <EmbeddedResource Include="AddList.resx">
       <DependentUpon>AddList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Alert.resx">
-      <DependentUpon>Alert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Detail.resx">
       <DependentUpon>Detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

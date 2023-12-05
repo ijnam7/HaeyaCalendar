@@ -16,13 +16,15 @@ namespace HaeyaCalendar
         {
             InitializeComponent();
 
-            DateTime dateToday = DateTime.Now;
+            DateTime dateToday = DateTime.Today;
             lbDateToday.Text = dateToday.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Timer timer = new Timer();
+            int working = Convert.ToInt32(nWorking.Value);
+            int resting = Convert.ToInt32(nResting.Value);
+            Timer timer = new Timer(tbTodoName.Text, working, resting);
             timer.Show();
         }
 
@@ -32,10 +34,9 @@ namespace HaeyaCalendar
             addlist.Show();
         }
 
-        private void resetMainList ()
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
-            DataTable dtAll = new DataTable();
-
+            gbTimer.Visible = checkBox1.Checked;
         }
     }
 }
