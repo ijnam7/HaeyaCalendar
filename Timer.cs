@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using System.Media;
 
 namespace HaeyaCalendar
 {
@@ -41,7 +42,7 @@ namespace HaeyaCalendar
             coll = db.GetCollection<ToDo>("todos");
 
             if (c == false ) { gbSet.Visible = c; }
-            else { lbSetWorking.Text = w.ToString(); lbSetResting.Text = r.ToString(); }
+            else { lbSetWorking.Text = w.ToString() + "분"; lbSetResting.Text = r.ToString() + "분"; }
 
             todoName = t;
             lbName.Text = todoName;
@@ -68,11 +69,17 @@ namespace HaeyaCalendar
         {
             if (state == true)
             {
+                lbState.BackColor = Color.SteelBlue;
+                btState.ForeColor = Color.SteelBlue;
+                lbTimer.ForeColor = Color.SteelBlue;
                 lbState.Text = "집중 중";
                 btState.Text = "잠깐 쉬기";
             }
             else
             {
+                lbState.BackColor = Color.LightCoral;
+                btState.ForeColor = Color.LightCoral;
+                lbTimer.ForeColor = Color.LightCoral;
                 lbState.Text = "쉬는 중";
                 btState.Text = "다시 집중하기";
                 recWorking += pTimer;
@@ -94,7 +101,9 @@ namespace HaeyaCalendar
             string lb = "집중 끝";
             if (over == true)
             {
-                lbTimer.ForeColor = Color.Red;
+                lbState.BackColor = Color.Crimson;
+                btState.ForeColor = Color.Crimson;
+                lbTimer.ForeColor = Color.Crimson;
             }
             if (select == "continue")
             {
@@ -119,7 +128,6 @@ namespace HaeyaCalendar
                 }
                 if (over)
                 {
-                    lbTimer.ForeColor = Color.Black;
                     over = false;
                 }
                 timerState();

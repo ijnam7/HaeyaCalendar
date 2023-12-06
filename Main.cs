@@ -64,7 +64,7 @@ namespace HaeyaCalendar
         {
             string lh = "00" + (s / 3600).ToString();
             string lm = "00" + (s%3600/60).ToString();
-            string ls = "00" + s.ToString();
+            string ls = "00" + (s%60).ToString();
             return string.Format("{0}:{1}:{2}", lh.Substring(lh.Length-2), lm.Substring(lm.Length - 2), ls.Substring(ls.Length - 2));
         }
 
